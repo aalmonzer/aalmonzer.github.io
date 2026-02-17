@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="js/blog.js"></script>
+    </head>
+    <body>
+        <a href="index.html" class="back-link">&larr; home</a>
+        <h1>blog</h1>
+
+        <div id="posts"></div>
+
+        <script>
+            async function loadPosts() {
+                const container = document.getElementById('posts');
+                const slugs = await fetchPostList();
+
+                for (const slug of slugs) {
+                    const post = await fetchPost(slug);
+                    if (!post) continue;
+
+                    const article = document.createElement('a');
+                    article.href = `post.html?slug=${slug}`;
+                    article.className = 'post-card';
+                    article.innerHTML = `
+                        <span class="post-date">${formatDate(post.date)}</span>
+                        <h2 class="post-title">${post.title || slug}</h2>
+                        <p class="post-preview">${getPreview(post.body)}</p>
+                    `;
+                    container.appendChild(article);
+                }
+
+                if (slugs.length === 0) {
+                    container.innerHTML = '<p style="color: gray;">no posts yet. check back later.</p>';
+                }
+            }
+
+            loadPosts();
+        </script>
+    </body>
+</html>

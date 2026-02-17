@@ -1,6 +1,138 @@
+@font-face {
+    font-family: 'Zed Mono Extended';
+    src: url('./zed-mono-extended.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zed Mono Extended';
+    src: url('./zed-mono-extendedbold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zed Mono Extended';
+    src: url('./zed-mono-extendeditalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Zed Mono Extended';
+    src: url('./zed-mono-extendedbolditalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
 body {
-    font-family: buffer, monospace;
+    font-family: 'Zed Mono Extended', monospace;
     background-color: #030303;
-    padding-left: 35%;
-    padding-right: 35%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #8a7aff;
+    font-weight: bold;
+}
+
+h2 {
+    color: #8a7aff;
+    font-weight: normal;
+}
+
+h3 {
+    color: #8a7aff;
+    font-weight: normal;
+}
+
+h4 {
+    color: white;
+    font-weight: normal;
+}
+
+/* blog */
+
+.back-link {
+    color: #8a7aff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.post-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 20px 0;
+}
+
+.post-card:hover .post-title {
+    text-decoration: underline;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.85em;
+}
+
+.post-title {
+    margin: 4px 0 8px 0;
+}
+
+.post-preview {
+    color: #aaa;
+    font-size: 0.9em;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* single post */
+
+.post-body {
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.post-body h2,
+.post-body h3 {
+    color: #8a7aff;
+    margin-top: 1.5em;
+}
+
+.post-body a {
+    color: #8a7aff;
+}
+
+.post-body code {
+    background: #1a1a1a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.post-body pre {
+    background: #1a1a1a;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+.post-body pre code {
+    background: none;
+    padding: 0;
+}
+
+.post-body ul, .post-body ol {
+    padding-left: 20px;
+}
+
+.post-body img {
+    max-width: 100%;
 }
