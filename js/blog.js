@@ -1,5 +1,6 @@
 // parse frontmatter (the --- block at the top of .md files)
 function parseFrontmatter(md) {
+    md = md.replace(/\r\n/g, '\n').trim();
     const match = md.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
     if (!match) return { meta: {}, body: md };
 

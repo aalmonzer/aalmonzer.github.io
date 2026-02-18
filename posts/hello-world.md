@@ -13,7 +13,5 @@ because i have thoughts and nowhere to put them. also because i can.
 
 -
 -
--
 
-
-yeah
+stay tuned or don't. either way i'll be here.

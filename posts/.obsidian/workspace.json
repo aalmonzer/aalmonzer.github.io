@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 284.5
   },
   "right": {
     "id": "3ad462d0b898a580",
@@ -183,8 +183,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "f7eed8e33c7dbca8",
+  "active": "313a0ec3b960bb52",
   "lastOpenFiles": [
+    "Untitled 2",
+    "Untitled 1",
+    "Untitled",
     "thoughts-on-ai.md"
   ]
 }
