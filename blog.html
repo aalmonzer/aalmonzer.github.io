@@ -14,25 +14,31 @@
         <script>
             async function loadPosts() {
                 const container = document.getElementById('posts');
-                const slugs = await fetchPostList();
 
-                for (const slug of slugs) {
-                    const post = await fetchPost(slug);
-                    if (!post) continue;
+                try {
+                    const slugs = await fetchPostList();
 
-                    const article = document.createElement('a');
-                    article.href = `post.html?slug=${slug}`;
-                    article.className = 'post-card';
-                    article.innerHTML = `
-                        <span class="post-date">${formatDate(post.date)}</span>
-                        <h2 class="post-title">${post.title || slug}</h2>
-                        <p class="post-preview">${getPreview(post.body)}</p>
-                    `;
-                    container.appendChild(article);
-                }
+                    for (const slug of slugs) {
+                        const post = await fetchPost(slug);
+                        if (!post) continue;
 
-                if (slugs.length === 0) {
-                    container.innerHTML = '<p style="color: gray;">no posts yet. check back later.</p>';
+                        const article = document.createElement('a');
+                        article.href = `post.html?slug=${slug}`;
+                        article.className = 'post-card';
+                        article.innerHTML = `
+                            <span class="post-date">${formatDate(post.date)}</span>
+                            <h2 class="post-title">${post.title || slug}</h2>
+                            <p class="post-preview">${getPreview(post.body)}</p>
+                        `;
+                        container.appendChild(article);
+                    }
+
+                    if (slugs.length === 0) {
+                        container.innerHTML = '<p style="color: gray;">no posts yet. check back later.</p>';
+                    }
+                } catch (err) {
+                    container.innerHTML = `<p style="color: red;">failed to load posts: ${err.message}</p>`;
+                    console.error(err);
                 }
             }
 
